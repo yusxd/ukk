@@ -1,0 +1,20 @@
+apt update
+apt install apache2 php phpmyadmin mysql-server mysql-client wget unzip git -y
+systemctl status apache2
+mysql
+create database wordpress;
+create user 'yusuf'@'localhost' identified by 'ukk2024_';
+grant all privileges on wordpress.* to 'yusuf'@'localhost';
+flush privileges;
+exit
+wget https://wordpress.org/latest.zip
+unzip latest.zip
+mv wordpress/ /var/www/html
+chmod -R 755 /var/www/html/wordpress
+chown www-data:www-data -R /var/www/html/wordpress
+git clone https://github.com/yusxd/ukk.git
+cp ukk/wordpress.conf /etc/apache2/sites-available/
+a2dissite 000-default.conf
+a2ensite wordpress.conf
+a2enmod rewrite
+systemctl restart apache2
