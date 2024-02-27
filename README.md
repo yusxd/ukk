@@ -3,6 +3,7 @@ apt install apache2 php phpmyadmin mysql-server mysql-client wget unzip git -y
 create database namadb;
 create user 'nama'@'localhost' identified by 'ukk2024_';
 grant all privileges on namadb.* to 'nama'@'localhost';
+flush privileges;
 wget https://wordpress.org/latest.zip
 unzip latest.zip
 mv wordpress/ /var/www/html
