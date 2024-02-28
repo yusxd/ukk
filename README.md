@@ -17,6 +17,7 @@ a2enmod rewrite
 systemctl restart apache2
 
 
+scp /var/lib/vz/template/iso/ubuntu-22.04.3-live-server-amd64.iso root@10.10.239:/var/lib/vz/template/iso
 
 
 
